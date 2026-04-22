@@ -24,7 +24,7 @@ Microphone ──► STT (Sarvam Saaras v3)
              LLM (Gemini 2.5 Flash)  ◄──────► MCP Server (FastMCP / SSE)
                     │                              ├─ get_world_news
                     ▼                              ├─ open_world_monitor
-             TTS (OpenAI nova)                     ├─ search_web
+             TTS (OpenAI nova)                     ├─ search_web (Google)
                     │                              └─ …more tools
                     ▼
              Speaker / LiveKit room
@@ -46,7 +46,7 @@ friday-tony-stark-demo/
 └── friday/             # MCP server package
     ├── config.py       # env-var loading & app-wide settings
     ├── tools/          # MCP tools (callable by the LLM)
-    │   ├── web.py      # search_web, fetch_url, get_world_news, open_world_monitor
+       │   ├── web.py      # Google search, URL fetch, world/finance news + dashboards
     │   ├── system.py   # get_current_time, get_system_info
     │   └── utils.py    # format_json, word_count
     ├── prompts/        # MCP prompt templates (summarize, explain_code, …)
@@ -123,7 +123,9 @@ Copy `.env.example` → `.env` and fill in the values below.
 | `OPENAI_API_KEY` | ✅ (default TTS) | [platform.openai.com/api-keys](https://platform.openai.com/api-keys) |
 | `DEEPGRAM_API_KEY` | optional | [console.deepgram.com](https://console.deepgram.com) |
 | `GOOGLE_APPLICATION_CREDENTIALS` | optional | GCP service-account JSON path — only for `STT_PROVIDER = "google"` |
-| `GOOGLE_API_KEY` | ✅ (default LLM) | [aistudio.google.com](https://aistudio.google.com/projects) |
+| `GOOGLE_API_KEY` | ✅ (default LLM) | Gemini key from [aistudio.google.com](https://aistudio.google.com/projects) |
+| `GOOGLE_CSE_API_KEY` | ✅ (for `search_web`) | Google Cloud API key with Custom Search API enabled |
+| `GOOGLE_SEARCH_CX` | ✅ (for `search_web`) | Google Programmable Search Engine ID (`cx`) |
 | `SUPABASE_URL` | optional | [supabase.com](https://supabase.com) — for the ticketing tool |
 | `SUPABASE_API_KEY` | optional | Supabase project → API settings |
 

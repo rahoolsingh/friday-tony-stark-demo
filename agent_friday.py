@@ -277,22 +277,22 @@ class FridayAgent(Agent):
 
         if hour >= 22 or hour < 4:
             greeting_instruction = (
-                "Greet the user with: 'Greetings boss, you're up late at night today. What are you up to?' "
+                "Greet the user with: 'Greetings boss, I'm JARVIS. You're up late at night today. What are you up to?' "
                 "Maintain a helpful but dry tone."
             )
         elif 4 <= hour < 12:
             greeting_instruction = (
-                "Greet the user with: 'Good morning, boss. Early start today — what are we working on?' "
+                "Greet the user with: 'Good morning, boss. I'm JARVIS. Early start today — what are we working on?' "
                 "Maintain a helpful but dry tone."
             )
         elif 12 <= hour < 17:
             greeting_instruction = (
-                "Greet the user with: 'Good afternoon, boss. What do you need?' "
+                "Greet the user with: 'Good afternoon, boss. I'm JARVIS. What do you need?' "
                 "Maintain a helpful but dry tone."
             )
         else:  # 17–21
             greeting_instruction = (
-                "Greet the user with: 'Good evening, boss. What are you up to tonight?' "
+                "Greet the user with: 'Good evening, boss. I'm JARVIS. What are you up to tonight?' "
                 "Maintain a helpful but dry tone."
             )
 
